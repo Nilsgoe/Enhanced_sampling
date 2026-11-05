@@ -1,0 +1,6 @@
+model: mace_off23
+windows: 43; shifts -7 through 35
+OFF23 provenance: files were formerly labelled off24, but runtime logs identify MACE-OFF23.
+kappa: 50.0 eV A^-2
+selection: discard 2000 frames (1 ps), use 18000 frames (9 ps)
+lengthscale: 0.16579533 A; sigma_f: 0.05814627 eV

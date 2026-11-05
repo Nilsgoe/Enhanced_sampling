@@ -1,0 +1,5 @@
+model: mace_mh1
+windows: 47; shifts -7 through 39
+kappa: 50.0 eV A^-2
+selection: discard 2000 frames (1 ps), use 18000 frames (9 ps)
+lengthscale: 0.44743650 A; sigma_f: 0.16819239 eV

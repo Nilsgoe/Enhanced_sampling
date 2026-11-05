@@ -54,12 +54,11 @@ requires those campaign outputs.
 
 ## Provenance and terminology
 
-`source_paths.tsv` records the origin of staged inputs. Historical files named
-`off_off24` were generated with MACE-OFF23(M), despite the older filename; the
-current figure scripts display the corrected MACE-OFF23(M) label.
+Historical files named `off_off24` were generated with MACE-OFF23(M), despite
+the older filename; the current figure scripts display the corrected
+MACE-OFF23(M) label.
 
-AMBER reference panels use exactly four independent biASE replicas (replicas
-1–4). Replica 0 is deliberately excluded.
+AMBER reference panels use four independent biASE replicas (replicas 1–4).
 
 ## Data scope
 

@@ -1,0 +1,6 @@
+GPR repository: /nexus/posix0/FHI-Theory/ngoen/Enhanced_sampling/MACE/external/GPR-Umbrella-Sampling-Analysis
+windows: 43; shifts: -7 through 35
+kappa: 50.0 eV A^-2
+selected data: 1 ps discard + 9 ps analysis per window; 5 dense windows use 0.5 fs frames, all others 5 fs.
+lengthscale: 0.19141854 A
+sigma_f: 0.11034330 eV
