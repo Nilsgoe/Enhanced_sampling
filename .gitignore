@@ -1,0 +1,5 @@
+# Local backup archives are intentionally not versioned.
+backup_*.zip
+*.sha256
+
+.fuse_hidden*

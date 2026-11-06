@@ -44,20 +44,6 @@ Matplotlib, and ASE. The molecular-dynamics drivers in `simulations/` have
 additional calculator and model-checkpoint requirements; they are provided as
 workflows, not as a turnkey execution environment.
 
-## Figure 3 raw-data note
-
-The package includes final Figure-3 curves and diagnostics, raw legacy-MACE
-windows, and explicit MACE-OFF24-M window data. Raw SO3LR and PET-SPICE-L
-umbrella outputs remain in the original campaign locations because they are
-large. Complete raw-data re-analysis of every Figure-3 model therefore
-requires those campaign outputs.
-
-## Provenance and terminology
-
-Historical files named `off_off24` were generated with MACE-OFF23(M), despite
-the older filename; the current figure scripts display the corrected
-MACE-OFF23(M) label.
-
 AMBER reference panels use four independent biASE replicas (replicas 1–4).
 
 ## Data scope

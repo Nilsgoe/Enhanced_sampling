@@ -17,6 +17,3 @@ trajectories and bias files remain in the original campaign directories; the
 figure directories contain the curated inputs needed to reproduce the released
 plots.
 
-Important label provenance: historical trajectories whose filenames contain
-`off_off24` are the legacy MACE-OFF23 campaign.  The published display label is
-`MACE-OFF23(M)`; it is corrected in the Figure 3 and Figure 4 plotting drivers.

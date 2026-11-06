@@ -53,15 +53,13 @@ class Target:
 
 
 TARGETS = [
-    # Historical trajectories were generated with MACE-OFF23(M), despite
-    # their misleading ``off_off24`` filename tag.
-    Target("malonaldehyd", "off_off24", "MACE-OFF23(M)", ROOT / "malonaldehyd", OUT_DIR / "malonaldehyd" / "mace_off23_m", "#009E73"),
-    Target("malonaldehyd", "mh1_mh-1", "MACE-MH-1", ROOT / "malonaldehyd", OUT_DIR / "malonaldehyd" / "mace_mh1", "#D55E00"),
+    Target("malonaldehyd", "off23", "MACE-OFF23(M)", OUT_DIR / "legacy_mace_models" / "malonaldehyd" / "off23", OUT_DIR / "malonaldehyd" / "mace_off23_m", "#009E73"),
+    Target("malonaldehyd", "mh1_mh-1", "MACE-MH-1", OUT_DIR / "legacy_mace_models" / "malonaldehyd" / "mh1", OUT_DIR / "malonaldehyd" / "mace_mh1", "#D55E00"),
     Target("malonaldehyd", "polar_m", "MACE-POLAR-1-M", ROOT / "malonaldehyd", OUT_DIR / "malonaldehyd" / "mace_polar_m", "#CC79A7"),
     Target("malonaldehyd", "viper_sol3r", "SO3LR", Path("/work/gpuviper_ptmp/Enhanced_sampling/sol3r/malonaldehyd"), OUT_DIR / "malonaldehyd" / "so3lr", "#0072B2"),
     Target("malonaldehyd", "viper_upet_pet_spice", "PET-SPICE-L", Path("/work/gpuviper_ptmp/Enhanced_sampling/upet/malonaldehyd"), OUT_DIR / "malonaldehyd" / "pet_spice", "#E69F00"),
-    Target("f-malonaldehyd", "off_off24", "MACE-OFF23(M)", ROOT / "f-malonaldehyd", OUT_DIR / "f-malonaldehyd" / "mace_off23_m", "#009E73"),
-    Target("f-malonaldehyd", "mh1_mh-1", "MACE-MH-1", ROOT / "f-malonaldehyd", OUT_DIR / "f-malonaldehyd" / "mace_mh1", "#D55E00"),
+    Target("f-malonaldehyd", "off23", "MACE-OFF23(M)", OUT_DIR / "legacy_mace_models" / "f-malonaldehyd" / "off23", OUT_DIR / "f-malonaldehyd" / "mace_off23_m", "#009E73"),
+    Target("f-malonaldehyd", "mh1_mh-1", "MACE-MH-1", OUT_DIR / "legacy_mace_models" / "f-malonaldehyd" / "mh1", OUT_DIR / "f-malonaldehyd" / "mace_mh1", "#D55E00"),
     Target("f-malonaldehyd", "polar_m", "MACE-POLAR-1-M", ROOT / "f-malonaldehyd", OUT_DIR / "f-malonaldehyd" / "mace_polar_m", "#CC79A7"),
     Target("f-malonaldehyd", "viper_sol3r", "SO3LR", Path("/work/gpuviper_ptmp/Enhanced_sampling/sol3r/f-malonaldehyd"), OUT_DIR / "f-malonaldehyd" / "so3lr", "#0072B2"),
     Target("f-malonaldehyd", "viper_upet_pet_spice", "PET-SPICE-L", Path("/work/gpuviper_ptmp/Enhanced_sampling/upet/f-malonaldehyd"), OUT_DIR / "f-malonaldehyd" / "pet_spice", "#E69F00"),
@@ -74,7 +72,7 @@ SYSTEMS = {
         "output": "malonaldehyde_fes_model_comparison_10ps_all_no_petrot",
         "dft": Curve(
             r"$\omega$B97M-V",
-            ROOT / "analysis/orca_dft/malonaldehyd_10ps/umbrella_integration_orca_dft_10ps.csv",
+            OUT_DIR / "umbrella_integration_orca_dft_10ps.csv",
             "black",
             "dft_10ps",
         ),
@@ -84,9 +82,7 @@ SYSTEMS = {
         "output": "f_malonaldehyde_fes_model_comparison_10ps_all_no_petrot",
         "dft": Curve(
             r"$\omega$B97M-V",
-            ROOT
-            / "analysis/orca_dft/f-malonaldehyd_10ps_mlip_cv"
-            / "umbrella_integration_orca_dft_10ps_mlip_cv.csv",
+            OUT_DIR / "umbrella_integration_orca_dft_10ps_mlip_cv.csv",
             "black",
             "dft_10ps",
         ),
@@ -296,7 +292,7 @@ def regenerate_10ps_outputs(off24_only: bool = False) -> dict[str, list[Curve]]:
     curves_by_system: dict[str, list[Curve]] = {system: [config["dft"]] for system, config in SYSTEMS.items()}
     for target in TARGETS:
         curve_path = target.output_dir / f"umbrella_integration_{target.model_tag}_10ps_curve.csv"
-        if not off24_only or target.model_tag == "off_off24":
+        if not off24_only or target.model_tag == "off23":
             print(f"Regenerating 10 ps: {target.system} {target.model_tag}", flush=True)
             windows = build_windows(target)
             target.output_dir.mkdir(parents=True, exist_ok=True)

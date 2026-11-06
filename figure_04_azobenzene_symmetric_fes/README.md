@@ -5,8 +5,7 @@ from the 16 raw wall-MetaD bias histories listed in `data/raw_bias_manifest.tsv`
 The exact successful histories are staged locally under `data/raw_bias/`, with
 their original `runs/<model>/<cis-or-trans>/outputs/` layout preserved.
 It invokes the archived native plotting scripts in the repository root and
-only corrects the documented historical label `MACE-OFF24(M)` to
-`MACE-OFF23(M)`.
+uses the MACE-OFF23(M) model label.
 
 Run from the repository root:
 

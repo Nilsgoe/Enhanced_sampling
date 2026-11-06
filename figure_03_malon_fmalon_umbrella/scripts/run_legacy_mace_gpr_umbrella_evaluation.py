@@ -88,7 +88,6 @@ def run(system: str, model: str, label: str, stride: int = 1) -> None:
     plt.close(fig)
     with (output / "analysis_provenance.txt").open("w") as handle:
         handle.write(f"model: {label}\nwindows: {len(shifts)}; shifts {min(shifts)} through {max(shifts)}\n")
-        handle.write("OFF23 provenance: files were formerly labelled off24, but runtime logs identify MACE-OFF23.\n" if model == "off23" else "")
         handle.write(f"kappa: {KAPPA_EV_PER_A2} eV A^-2\n")
         handle.write(f"raw stride: every {stride} frame(s); output spacing: {0.5 * stride:g} fs\n")
         handle.write(f"selection: discard {DISCARD_FRAMES // stride} saved frames (1 ps), use {USE_FRAMES // stride} saved frames (9 ps)\n")
